@@ -1,0 +1,79 @@
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+.navbar-brand {
+	text-align: center;
+	width: 100%;
+}
+.btn-group {
+	text-align: right;
+
+}
+
+.container {
+	text-align: center;
+}
+
+.container h1 {
+	font-size: 48px;
+	margin-top: 40px;
+}
+
+.container .btn {
+	font-size: 24px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 40px;
+
+}
+
+.main-section{
+	margin: 0 auto;
+	margin-top: 130px;
+
+	padding: 0;
+}
+
+.modal-content {
+	/*opacity: .95;*/
+	padding: 0 18px;
+	box-shadow: 0px 0px 10px #848484;
+
+}
+
+.user-img {
+	margin-top: -50px;
+	margin-bottom: 35px;
+}
+
+.user-img img {
+	height: 150px;
+	width: 150px;
+	border-radius: 5px;
+}
+
+.form-group input {
+	height: 42px;
+	border-radius: 5px;
+	font-size: 18px;
+	padding-left: 40px;
+}
+
+.form-group::before {
+	font-family: FontAwesome;
+	content:"\f007";
+	position: absolute;
+	font-size: 22px;
+	color: #555e60;
+	left: 28px;
+	padding-top: 4px; 
+}
+
+.form-group:last-of-type::before {
+	content: "\f023";
+}
+
+button {
+	margin: 5px 0 25px;
+}
+
+
