@@ -1,23 +1,87 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <meta charset="utf-8">
-  <title>Font Awesome</title>
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="style.css">
+  <title>User Page</title>
  </head>
  <body>
-  <div class="input-group input-group-lg">
-  <span class="input-group-addon">
-    <i class="fa fa-envelope"></i>
-  </span>
-  <input class="form-control" type="text" placeholder="Email address">
-</div>
-<div class="input-group input-group-lg">
-  <span class="input-group-addon">
-    <i class="fa fa-lock"></i>
-  </span>
-  <input class="form-control" type="password" placeholder="Password">
-</div> 
- </body>
+
+
+  <nav class="navbar navbar-expand navbar-light  bg-light">
+      <a class="navbar-brand mx-auto" href="#">Заголовок</a>
+      <ul class="nav navbar-nav">
+       <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="dropdownSchedule" data-toggle="dropdown" aria-expanded="false"> 
+                 Расписание
+              </a>
+              <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="dropdownSchedule">
+                  <a class="dropdown-item" href="#">Моё</a>
+                  <a class="dropdown-item" href="#">Группы</a>
+                  <a class="dropdown-item" href="#">Преподавателя</a>
+              </div>
+          </li>
+          <li><a href=""class="nav-link" data-toggle="modal" data-target="#visitsModal">Посещения</a></li>
+      <!-- </ul> -->
+    
+      <!-- <ul class="nav navbar-nav"> -->
+          <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-expanded="false"> 
+                  Привет, студент
+              </a>
+              <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="dropdownUser">
+                  <a class="dropdown-item" href="#">Профиль</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Выйти</a>
+              </div>
+          </li>
+      </ul>
+  </nav>
+
+  <div class="modal fade" id="visitsModal" tabindex="-1" role="dialog" aria-labellebdy="visitsModal" aria-hidden="true">
+          <div class="modal-dialog text-center">
+            <div class="col-sm-8 main-section">
+              <div class="modal-content">
+                <div class="modal-header">Выберите дату</div>
+                <div class="form-group">
+                  <div class="input-group date" id="datetimepicker1">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon"></span>
+                    </span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/moment-with-locales.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
+  
+  <script type="text/javascript">
+     $(function () {
+      $('#datetimepicker1').datetimepicker({
+      locale: 'ru',
+    stepping:10,
+    format: 'DD.MM.YYYY',
+    daysOfWeekDisabled:[0,7]
+    });
+    });
+</script>
+
 </html>
