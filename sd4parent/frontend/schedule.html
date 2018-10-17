@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" href="style.css">
-  <title>User Page</title>
+  <link rel="stylesheet" href="schedule.css">
+  <title>Schedule</title>
  </head>
  <body>
 
@@ -49,56 +49,47 @@
             </div>
           </div>
         </div>
-      </div>
-  
-  <div class="container">
-    <div class="col-6 col-md-4">
-      <h1>Lol</h1>
-    </div>
-    <div class="col-6 col-md-8">
-      <table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">№</th>
-      <th scope="col">Время</th>
-      <th scope="col">Дисциплина</th>
-      <th scope="col">Преподаватель</th>
-      <th scope="col">Аудитория</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>14-15</td>
-      <td>ППвИС</td>
-      <td>Жуков</td>
-      <td>414-4</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>14-15</td>
-      <td>ППвИС</td>
-      <td>Жуков</td>
-      <td>414-4</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>14-15</td>
-      <td>ППвИС</td>
-      <td>Жуков</td>
-      <td>414-4</td>
-    </tr>
-  </tbody>
-</table>
-    </div>
+   </div>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openSchedule(event, 'todaySchedule')" id="defaultOpen">Сегодня</button>
+    <button class="tablinks" onclick="openSchedule(event, 'weekShedule')">Эта неделя</button>
+    <button class="tablinks" onclick="openSchedule(event, 'fullShedule')">Полное</button>
+    <button class="tablinks" onclick="openSchedule(event, 'groupSchedule')">Поиск группы</button>
   </div>
-  <div class="list-left">
-  <ul class="nav nav-list">
-        <li class="nav-header">Заголовок</li>
-        <li class="active"><a href="#">Главная</a></li>
-        <li><a href="#">Библиотека</a></li>
-      </ul>
+  <div id="todaySchedule" class="tabcontent">
+    
+     <div class="row event"> <!-- мероприятие -->
+        <div class="col-md-3">
+         <h1>Сегодня</h1>
+        </div>
+        <div class="col-md-5">
+          <ul class="list-group">
+            <div class="list-group-item">
+              <div class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </div>
+              <div class="week">1, 3</div>
+              <div class="subject">ППвИС</div>
+            </div>
+            <a href="#" class="list-group-item"><span class="timing">12:00</span>Первая отметка о присутствии! Не проспать!</a>
+            <a href="#" class="list-group-item"><span class="timing">16:00</span>Вторая отметка о присутствии! Не прогулять!</a>
+            <a href="#" class="list-group-item"><span class="timing">16:00</span>Окончание занятия. Не проспать!</a>
+          </ul>
+        </div>
       </div>
+  </div>
+  <div id="weekShedule" class="tabcontent">
+    
+  </div>
+  <div id="fullShedule" class="tabcontent">
+    
+  </div>
+  <div id="Поиск группы" class="tabcontent">
+    
+  </div>
+
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -118,6 +109,26 @@
     daysOfWeekDisabled:[0,7]
     });
     });
-</script>
+  </script>
+  
 
+  <script>
+  function openSchedule(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+  document.getElementById("defaultOpen").click();
+  </script>
+     
+
+</body>
 </html>
