@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="schedule.css">
   <title>Schedule</title>
+
  </head>
  <body>
 
@@ -52,42 +53,677 @@
    </div>
 
   <div class="tab">
+
     <button class="tablinks" onclick="openSchedule(event, 'todaySchedule')" id="defaultOpen">Сегодня</button>
-    <button class="tablinks" onclick="openSchedule(event, 'weekShedule')">Эта неделя</button>
-    <button class="tablinks" onclick="openSchedule(event, 'fullShedule')">Полное</button>
-    <button class="tablinks" onclick="openSchedule(event, 'groupSchedule')">Поиск группы</button>
+    <button class="tablinks" onclick="openSchedule(event, 'weekSchedule')">Эта неделя</button>
+    <button class="tablinks" onclick="openSchedule(event, 'fullSchedule')">Полное</button>
+    <button class="tablinks" onclick="openSchedule(event, 'groupSchedule')">Группы</button>
+    <button class="tablinks" onclick="openSchedule(event, 'professorSchedule')">Преподавателя</button>
   </div>
   <div id="todaySchedule" class="tabcontent">
-    
-     <div class="row event"> <!-- мероприятие -->
-        <div class="col-md-3">
-         <h1>Сегодня</h1>
-        </div>
-        <div class="col-md-5">
-          <ul class="list-group">
-            <div class="list-group-item">
-              <div class="lessonTime">
+      <div class="col-md-3">
+       <h1>Сегодня</h1>
+      </div>
+      <div class="col-md-6">
+          <table class="table table-striped">
+            <tbody>
+              <tr class="lesson">
+               
+                <td class="lessonTime">
+                  <div class="startLesson">8.00</div>
+                  <div class="endLesson">9.35</div>
+                </td>
+                <td class="week">1, 3</td>
+                <td class="subject">ППвИС</td>
+                <td class="subjectType">ЛР</td>
+                <td class="professor">Жуков</td>
+                <td class="classroom">414 - 4</td>
+              </tr>
+              <tr class="lesson">
+                
+                <td class="lessonTime">
+                  <div class="startLesson">9.45</div>
+                  <div class="endLesson">11.20</div>
+                </td>
+                <td class="week">2</td>
+                <td class="subject">ОС</td>
+                <td class="subjectType">ЛК</td>
+                <td class="professor">Колб</td>
+                <td class="classroom">218-4</td>
+              </tr>
+              <tr class="lesson">
+               
+                <td class="lessonTime">
+                  <div class="startLesson">11.40</div>
+                  <div class="endLesson">13.15</div>
+                </td>
+                <td class="week">1, 2, 3, 4</td>
+                <td class="subject">Матем</td>
+                <td class="subjectType">ПЗ</td>
+                <td class="professor">Навроцкая</td>
+                <td class="classroom">510-2</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+</div>
+  <div id="weekSchedule" class="tabcontent">
+    <div class="container-fluid">
+      <div class="col-md-6">
+        <h1>Понедельник</h1>
+      </div>
+      <div class="col-md-6">
+        
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
                 <div class="startLesson">8.00</div>
                 <div class="endLesson">9.35</div>
-              </div>
-              <div class="week">1, 3</div>
-              <div class="subject">ППвИС</div>
-            </div>
-            <a href="#" class="list-group-item"><span class="timing">12:00</span>Первая отметка о присутствии! Не проспать!</a>
-            <a href="#" class="list-group-item"><span class="timing">16:00</span>Вторая отметка о присутствии! Не прогулять!</a>
-            <a href="#" class="list-group-item"><span class="timing">16:00</span>Окончание занятия. Не проспать!</a>
-          </ul>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h1>Вторник</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <h1>Среда</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Четверг</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Пятница</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Суббота</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="fullSchedule" class="tabcontent">
+    <div class="flex-wrapper">
+      <div class="scheduleBlock">
+      <div class="col-md-6">
+        <h1>Понедельник</h1>
+      </div>
+      <div class="col-md-6">
+        
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h1>Вторник</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <h1>Среда</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Четверг</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Пятница</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <div class="col-md-6">
+        <h1>Суббота</h1>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tbody>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">8.00</div>
+                <div class="endLesson">9.35</div>
+              </td>
+              <td class="week">1, 3</td>
+              <td class="subject">ППвИС</td>
+              <td class="subjectType">ЛР</td>
+              <td class="professor">Жуков</td>
+              <td class="classroom">414 - 4</td>
+            </tr>
+            <tr class="lesson">
+              
+              <td class="lessonTime">
+                <div class="startLesson">9.45</div>
+                <div class="endLesson">11.20</div>
+              </td>
+              <td class="week">2</td>
+              <td class="subject">ОС</td>
+              <td class="subjectType">ЛК</td>
+              <td class="professor">Колб</td>
+              <td class="classroom">218-4</td>
+            </tr>
+            <tr class="lesson">
+             
+              <td class="lessonTime">
+                <div class="startLesson">11.40</div>
+                <div class="endLesson">13.15</div>
+              </td>
+              <td class="week">1, 2, 3, 4</td>
+              <td class="subject">Матем</td>
+              <td class="subjectType">ПЗ</td>
+              <td class="professor">Навроцкая</td>
+              <td class="classroom">510-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="filterBlock">
+      <div class="filter">Недели:</div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="checkWeek1" checked>
+          <label class="form-check-label" for="checkWeek1">1</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="checkWeek2" checked>
+          <label class="form-check-label" for="checkWeek2">2</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="checkWeek1" checked>
+          <label class="form-check-label" for="checkWeek1">3</label>
+        </div>
+        <div class="form-check" checked>
+          <input class="form-check-input" type="checkbox" value="" id="checkWeek1">
+          <label class="form-check-label" for="checkWeek1">4</label>
         </div>
       </div>
+    </div>
+
+
+    </div>
   </div>
-  <div id="weekShedule" class="tabcontent">
-    
   </div>
-  <div id="fullShedule" class="tabcontent">
-    
   </div>
-  <div id="Поиск группы" class="tabcontent">
-    
+  <div id="groupSchedule" class="tabcontent">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Введите номер группы" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+
+  <div id="professorSchedule"class="tabcontent">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Введите фамилию преподавателя" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
   </div>
 
 
@@ -113,20 +749,22 @@
   
 
   <script>
-  function openSchedule(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-  }
-  document.getElementById("defaultOpen").click();
+  function openSchedule(evt, schedule) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(schedule).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
   </script>
      
 
