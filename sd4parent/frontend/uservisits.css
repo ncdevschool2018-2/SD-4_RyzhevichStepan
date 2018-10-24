@@ -1,0 +1,54 @@
+
+.navbar {
+
+    box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 130px;
+    padding: 0;
+}
+
+.modal-content {
+    opacity: .95;
+    padding: 0 18px;
+    box-shadow: 0px 0px 10px #848484;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    font-size: 14px;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+.startLesson {
+    font-size: 18px;
+}
+
+.endLesson {
+    font-size: 16px;
+    color: #999;
+}
+
+.week, .professor, .classroom, .subject, .subjectType {
+    font-size: 18px;
+}
+
+ .container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: auto;
+}
+
+.table tr.marked{
+    background-color: #EFDCDC;
+}
