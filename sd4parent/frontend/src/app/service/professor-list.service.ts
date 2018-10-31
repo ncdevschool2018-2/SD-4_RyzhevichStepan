@@ -11,7 +11,7 @@ export class ProfessorListService {
   constructor(private http: HttpClient){}
 
   getProfessorList() : Observable<ProfessorList[]> {
-    return this.http.get<ProfessorList[]>('/api/stlist');
+    return this.http.get<ProfessorList[]>('/api/prlist');
   }
 
   saveProfessorList(professorList: ProfessorList) : Observable<ProfessorList> {

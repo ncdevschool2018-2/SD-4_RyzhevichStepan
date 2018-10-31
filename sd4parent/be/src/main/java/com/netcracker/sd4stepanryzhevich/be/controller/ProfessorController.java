@@ -17,6 +17,7 @@ public class ProfessorController {
     public ProfessorController(ProfessorService professorService) { this.professorService = professorService; }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+
     public ResponseEntity<Professor> getProfessorById(@PathVariable(name = "id") Long id) {
         Optional<Professor> professorList = professorService.getProfessorById(id);
         if (professorList.isPresent()) {
@@ -27,16 +28,19 @@ public class ProfessorController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
+
     public Iterable<Professor> getAllProfessor() {
         return professorService.getAllProfessor();
     }
 
     @RequestMapping(method = RequestMethod.POST)
+
     public Professor saveProfessor(@RequestBody Professor professor) {
         return professorService.saveProfessor(professor);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+
     public ResponseEntity deleteProfessor(@PathVariable(name = "id") Long id) {
         professorService.deleteProfessor(id);
         return ResponseEntity.noContent().build();

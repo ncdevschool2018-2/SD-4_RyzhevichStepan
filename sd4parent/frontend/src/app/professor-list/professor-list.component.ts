@@ -18,7 +18,7 @@ export class ProfessorListComponent implements OnInit{
   public editableBa: ProfessorList = new ProfessorList();
   public modalRef: BsModalRef;
 
-  private subsctiptions: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
 
   constructor(private professorListService : ProfessorListService,
               private modalService: BsModalService){}
@@ -28,7 +28,7 @@ export class ProfessorListComponent implements OnInit{
   }
 
   private loadProfessorList(): void {
-    this.subsctiptions.push(this.professorListService.getProfessorList().subscribe(listItem => {
+    this.subscriptions.push(this.professorListService.getProfessorList().subscribe(listItem => {
       this.professorList = listItem as ProfessorList[];
       console.log(this.professorList);
     }))
@@ -47,7 +47,7 @@ export class ProfessorListComponent implements OnInit{
   }
 
   public  _addProfessorList(): void {
-    this.subsctiptions.push(this.professorListService.saveProfessorList(this.editableBa).subscribe(()=>{
+    this.subscriptions.push(this.professorListService.saveProfessorList(this.editableBa).subscribe(()=>{
       this._updateProfessorList();
       this.refreshBa();
       this._closeModal();
@@ -55,7 +55,7 @@ export class ProfessorListComponent implements OnInit{
   }
 
   public _deleteProfessorList(professorList: string) : void {
-    this.subsctiptions.push(this.professorListService.deleteProfessorList(professorList).subscribe(() => {
+    this.subscriptions.push(this.professorListService.deleteProfessorList(professorList).subscribe(() => {
       this._updateProfessorList();
     }))
   }
@@ -73,6 +73,6 @@ export class ProfessorListComponent implements OnInit{
   }
 
   ngOnDestroy(): void {
-    this.subsctiptions.forEach(subsctiption => subsctiption.unsubscribe());
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 }

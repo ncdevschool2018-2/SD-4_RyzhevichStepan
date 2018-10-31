@@ -73,15 +73,15 @@ export class StudentListComponent implements OnInit{
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
-
-  @Input('sortable-column')
-  columnName: string;
-
-  @Input('sort-derection')
-  sortDirection: string='';
-
-  @HostListener('click')
-  sort() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  }
+  //
+  // @Input('sortable-column')
+  // columnName: string;
+  //
+  // @Input('sort-derection')
+  // sortDirection: string='';
+  //
+  // @HostListener('click')
+  // sort() {
+  //   this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  // }
 }
