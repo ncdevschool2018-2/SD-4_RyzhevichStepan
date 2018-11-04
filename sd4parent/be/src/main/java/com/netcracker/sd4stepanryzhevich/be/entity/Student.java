@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "student")
 public class Student {
-    private long idStudent;
+    private long id_student;
     private String firstname;
     private String secondname;
     private String patronymic;
@@ -14,28 +14,31 @@ public class Student {
     private String email;
     private Integer course;
     private Integer subgroup;
-    private Group group;
+    private long group_id;
+    private StudentsGroup studentsGroup;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_group")
-    public Group getGroup(){
-       return group;
+    public StudentsGroup getStudentsGroup(){
+       return studentsGroup;
     }
 
-    public void setGroup(Group group){
-        this.group = group;
+    public void setStudentsGroup(StudentsGroup studentsGroup){
+        this.studentsGroup = studentsGroup;
     }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_student")
-    public long getIdStudent() {
-        return idStudent;
+    public long getId_student() {
+        return id_student;
     }
 
-    public void setIdStudent(long idStudent) {
-        this.idStudent = idStudent;
+    public void setId_student(long idStudent) {
+        this.id_student = idStudent;
     }
+
 
     @Basic
     @Column(name = "firstname")
@@ -116,7 +119,7 @@ public class Student {
 
         Student student = (Student) o;
 
-        if (idStudent != student.idStudent) return false;
+        if (id_student != student.id_student) return false;
         if (firstname != null ? !firstname.equals(student.firstname) : student.firstname != null) return false;
         if (secondname != null ? !secondname.equals(student.secondname) : student.secondname != null) return false;
         if (patronymic != null ? !patronymic.equals(student.patronymic) : student.patronymic != null) return false;
@@ -130,7 +133,7 @@ public class Student {
 
     @Override
     public int hashCode() {
-        int result = (int) (idStudent ^ (idStudent >>> 32));
+        int result = (int) (id_student ^ (id_student >>> 32));
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
         result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);

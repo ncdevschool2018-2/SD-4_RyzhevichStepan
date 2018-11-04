@@ -12,7 +12,7 @@
 
     <name>backend</name>
 
-    <description>backend for NC EDU</description>
+    <description>backend</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

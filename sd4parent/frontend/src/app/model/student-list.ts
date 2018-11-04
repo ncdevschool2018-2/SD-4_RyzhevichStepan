@@ -1,13 +1,16 @@
+import {StudentsGroup} from "./studentsgroup";
+
 export class StudentList {
   id_student: string;
   firstname: string;
   secondname: string;
   patronymic: string;
-  id_group: string;
+  group: StudentsGroup;
   subgroup: string;
   course: string;
   telnumber: string;
   email: string;
+
 
   static cloneBase(studentList: StudentList) : StudentList {
     let clonedStudentList: StudentList = new StudentList();
@@ -16,7 +19,7 @@ export class StudentList {
     clonedStudentList.firstname = studentList.firstname;
     clonedStudentList.secondname = studentList.secondname;
     clonedStudentList.patronymic = studentList.patronymic;
-    clonedStudentList.id_group = studentList.id_group;
+    clonedStudentList.group = StudentsGroup.cloneBase(studentList.group);
     clonedStudentList.subgroup = studentList.subgroup;
     clonedStudentList.course = studentList.course;
     clonedStudentList.telnumber = studentList.telnumber;

@@ -29,7 +29,7 @@
             <td>{{studList.firstname}}</td>
             <td>{{studList.secondname}}</td>
             <td>{{studList.patronymic}}</td>
-            <td>{{studList.id_group}}</td>
+            <td>{{studList.group.name}}</td>
             <td>{{studList.subgroup}}</td>
             <td>{{studList.course}}</td>
             <td>{{studList.telnumber}}</td>
@@ -56,56 +56,56 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="form-group">
+    <div class="form-studentsGroup">
       <label>Фамилия</label>
       <input class="form-control" name="secondame" [(ngModel)]="editableBa.secondname" #secondname="ngModel" required/>
       <div [hidden]="secondname.valid || secondname.untouched" class="alert alert-danger">
         Введите фамилию<!--Easy way to create client validation-->
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-studentsGroup">
       <label>Имя</label>
       <input class="form-control" name="firstname" [(ngModel)]="editableBa.firstname" #firstname="ngModel" required/>
       <div [hidden]="firstname.valid || firstname.untouched" class="alert alert-danger">
         Введите имя<!--Easy way to create client validation-->
       </div>
     </div>
-      <div class="form-group">
+      <div class="form-studentsGroup">
         <label>Отчество</label>
         <input class="form-control" name="patronymic" [(ngModel)]="editableBa.patronymic" #patronymic="ngModel" required/>
         <div [hidden]="patronymic.valid || patronymic.untouched" class="alert alert-danger">
           Введите отчество<!--Easy way to create client validation-->
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-studentsGroup">
           <label>Группа</label>
           <input class="form-control" name="id_group" [(ngModel)]="editableBa.id_group" #id_group="ngModel" required/>
           <div [hidden]="id_group.valid || id_group.untouched" class="alert alert-danger">
             Введите группу<!--Easy way to create client validation-->
           </div>
       </div>
-          <div class="form-group">
+          <div class="form-studentsGroup">
             <label>Подруппа</label>
             <input class="form-control" name="subgroup" [(ngModel)]="editableBa.subgroup" #subgroup="ngModel" required/>
             <div [hidden]="subgroup.valid || subgroup.untouched" class="alert alert-danger">
               Введите подгруппу<!--Easy way to create client validation-->
             </div>
           </div>
-    <div class="form-group">
+    <div class="form-studentsGroup">
       <label>Курс</label>
       <input class="form-control" name="course" [(ngModel)]="editableBa.course" #course="ngModel" required/>
       <div [hidden]="course.valid || course.untouched" class="alert alert-danger">
         Введите курс<!--Easy way to create client validation-->
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-studentsGroup">
       <label>Номер телефона</label>
       <input class="form-control" name="telnumber" [(ngModel)]="editableBa.telnumber" #telnumber="ngModel" required/>
       <div [hidden]="telnumber.valid || telnumber.untouched" class="alert alert-danger">
         Введите номер телефона<!--Easy way to create client validation-->
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-studentsGroup">
       <label>Email</label>
       <input class="form-control" name="email" [(ngModel)]="editableBa.email" #email="ngModel"
              required pattern="[a-zA-Z0-9_\.\-]+@[a-zA-Z]+?\.[a-zA-Z]{2,4}"/>
