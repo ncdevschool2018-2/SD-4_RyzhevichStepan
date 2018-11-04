@@ -1,6 +1,7 @@
 package com.netcracker.sd4stepanryzhevich.be.controller;
 
 import com.netcracker.sd4stepanryzhevich.be.entity.Professor;
+import com.netcracker.sd4stepanryzhevich.be.entity.Student;
 import com.netcracker.sd4stepanryzhevich.be.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class ProfessorController {
     public ProfessorController(ProfessorService professorService) { this.professorService = professorService; }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-
     public ResponseEntity<Professor> getProfessorById(@PathVariable(name = "id") Long id) {
+        new Student().getStudentsGroup().getName();
         Optional<Professor> professorList = professorService.getProfessorById(id);
         if (professorList.isPresent()) {
             return ResponseEntity.ok(professorList.get());

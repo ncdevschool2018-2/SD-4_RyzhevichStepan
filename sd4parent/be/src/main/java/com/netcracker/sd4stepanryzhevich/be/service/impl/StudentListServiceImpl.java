@@ -37,4 +37,9 @@ public class StudentListServiceImpl implements StudentListService {
     public void deleteStudentList(Long id) {
         repository.deleteById(id);
     }
+
+//    @Override
+//    public String getGroupName() {
+//        return this.repository.getGroupName();
+//    }
 }

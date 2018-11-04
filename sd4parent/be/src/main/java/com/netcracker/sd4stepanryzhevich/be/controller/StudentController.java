@@ -20,6 +20,7 @@ public class StudentController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Student> getStudentListById(@PathVariable(name = "id") Long id) {
+      //  new Student().getStudentsGroup().getName();
         Optional<Student> studentList = studentListService.getStudentListById(id);
         if (studentList.isPresent()) {
             return ResponseEntity.ok(studentList.get());

@@ -7,8 +7,11 @@ import java.util.Optional;
 public interface StudentListService {
 
     Student saveStudentList(Student student);
+
     Optional<Student> getStudentListById(Long id);
+
     Iterable<Student> getAllStudentLists();
+
     void deleteStudentList(Long id);
 
 }

@@ -1,0 +1,12 @@
+com\netcracker\sd4stepanryzhevich\fapi\filter\CorsFilter.class
+com\netcracker\sd4stepanryzhevich\fapi\service\StudentListDataService.class
+com\netcracker\sd4stepanryzhevich\fapi\service\ProfessorDataService.class
+com\netcracker\sd4stepanryzhevich\fapi\models\StudentViewModel.class
+com\netcracker\sd4stepanryzhevich\fapi\FapiApplication.class
+com\netcracker\sd4stepanryzhevich\fapi\service\impl\ProfessorDataServiceImpl.class
+com\netcracker\sd4stepanryzhevich\fapi\controller\ProfessorDataController.class
+com\netcracker\sd4stepanryzhevich\fapi\controller\StudentListDataController.class
+com\netcracker\sd4stepanryzhevich\fapi\converter\StudentToStudentViewModel.class
+com\netcracker\sd4stepanryzhevich\fapi\models\StudentsGroupViewModel.class
+com\netcracker\sd4stepanryzhevich\fapi\service\impl\StudentListDataServiceImpl.class
+com\netcracker\sd4stepanryzhevich\fapi\models\ProfessorViewModel.class

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.netcracker.sd4stepanryzhevich.fapi.FapiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.847 s - in com.netcracker.sd4stepanryzhevich.fapi.FapiApplicationTests

@@ -7,8 +7,9 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 @Entity
+
 public class Subject {
-    private long idSubject;
+    private long id_subject;
     private String name;
     private String type;
     private String timeslot;
@@ -16,12 +17,12 @@ public class Subject {
 
     @Id
     @Column(name = "id_subject")
-    public long getIdSubject() {
-        return idSubject;
+    public long getId_subject() {
+        return id_subject;
     }
 
-    public void setIdSubject(long idSubject) {
-        this.idSubject = idSubject;
+    public void setId_subject(long idSubject) {
+        this.id_subject = idSubject;
     }
 
     @Basic
@@ -71,7 +72,7 @@ public class Subject {
 
         Subject subject = (Subject) o;
 
-        if (idSubject != subject.idSubject) return false;
+        if (id_subject != subject.id_subject) return false;
         if (name != null ? !name.equals(subject.name) : subject.name != null) return false;
         if (type != null ? !type.equals(subject.type) : subject.type != null) return false;
         if (timeslot != null ? !timeslot.equals(subject.timeslot) : subject.timeslot != null) return false;
@@ -82,7 +83,7 @@ public class Subject {
 
     @Override
     public int hashCode() {
-        int result = (int) (idSubject ^ (idSubject >>> 32));
+        int result = (int) (id_subject ^ (id_subject >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (timeslot != null ? timeslot.hashCode() : 0);
