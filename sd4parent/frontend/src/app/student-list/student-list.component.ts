@@ -1,55 +1,83 @@
-import {Component, HostListener, Input, OnInit, TemplateRef} from "@angular/core";
-import { StudentList } from "../model/student-list";
-import  {StudentListService } from "../service/student-list.service";
+import {Component, HostListener, Input, OnDestroy, OnInit, TemplateRef} from "@angular/core";
+import { Student } from "../model/student";
+import  {StudentService } from "../service/student.service";
 import { Subscription } from "rxjs/internal/Subscription";
 import { BsModalRef, BsModalService } from "ngx-bootstrap";
+import {StudentsGroup} from "../model/studentsgroup";
+import {StudentsGroupService} from "../service/studentsgroup.service";
+import {Faculty} from "../model/faculty";
+import {FacultyService} from "../service/faculty.service";
 
 @Component({
   selector: 'student-list',
   templateUrl: './student-list.component.html',
 })
 
-export class StudentListComponent implements OnInit{
+export class StudentListComponent implements OnInit, OnDestroy{
   public editMode = false;
 
-  public studentList: StudentList[];
-  public editableBa: StudentList = new StudentList();
+  public studentList: Student[];
+  public editableStudent: Student = new Student();
   public modalRef: BsModalRef;
+
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private studentListService : StudentListService,
+  constructor(private studentListService : StudentService,
+              private groupService : StudentsGroupService,
+              private facultyService: FacultyService,
               private modalService: BsModalService){}
 
   ngOnInit() {
     this.loadStudentList();
+    this.editableStudent.group = new StudentsGroup();
+    this.editableStudent.group.faculty = new Faculty();
   }
 
   private loadStudentList(): void {
     this.subscriptions.push(this.studentListService.getStudentList().subscribe(listItem => {
-      this.studentList = listItem as StudentList[];
+      this.studentList = listItem as Student[];
       console.log(this.studentList);
     }))
   }
 
   //открытие модального окна для изменения\добавления
-  public _openModal(template: TemplateRef<any>, studList: StudentList) : void {
+  public _openModal(template: TemplateRef<any>, studList: Student) : void {
     if(studList){
       this.editMode = true;
-      this.editableBa = StudentList.cloneBase(studList);
+      this.editableStudent = Student.cloneBase(studList);
     } else {
-      this.refreshBa();
+      this.refreshStudentList();
       this.editMode = false;
     }
     this.modalRef = this.modalService.show(template);
   }
 
   public  _addStudentList(): void {
-    this.subscriptions.push(this.studentListService.saveStudentList(this.editableBa).subscribe(()=>{
-      this._updateStudentList();
-      this.refreshBa();
-      this._closeModal();
-    }));
+    // this.subscriptions.push(this.studentListService.saveStudentList(this.editableStudent).subscribe(()=>{
+
+      this.subscriptions.push(this.groupService.getStudentsGroupById(this.editableStudent.group.id_group).subscribe((groupItem => {
+        if(groupItem) {
+          this.editableStudent.group = groupItem as StudentsGroup;
+        } else return;
+
+        if(this.editableStudent.group !== null)
+          this.subscriptions.push(this.studentListService.saveStudentList(this.editableStudent).subscribe(()=> {
+            this._updateStudentList();
+            this.refreshStudentList();
+        }));
+    })));
+      this.subscriptions.push(this.facultyService.getFacultyById(this.editableStudent.group.faculty.id_faculty).subscribe((facultyItem => {
+        if(facultyItem){
+          this.editableStudent.group.faculty = facultyItem as Faculty;
+        } else return;
+        if(this.editableStudent.group.faculty !== null)
+          this.subscriptions.push(this.studentListService.saveStudentList(this.editableStudent).subscribe( ()=> {
+            this._updateStudentList();
+            this.refreshStudentList();
+            this._closeModal();
+          }))
+      })))
   }
 
   public _deleteStudentList(studentList: string) : void {
@@ -62,8 +90,10 @@ export class StudentListComponent implements OnInit{
     this.modalRef.hide();
   }
 
-  private refreshBa(): void {
-    this.editableBa = new StudentList();
+  private refreshStudentList(): void {
+    this.editableStudent = new Student();
+    this.editableStudent.group = new StudentsGroup();
+    this.editableStudent.group.faculty = new Faculty();
   }
 
   public _updateStudentList(): void {
@@ -73,15 +103,4 @@ export class StudentListComponent implements OnInit{
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
-  //
-  // @Input('sortable-column')
-  // columnName: string;
-  //
-  // @Input('sort-derection')
-  // sortDirection: string='';
-  //
-  // @HostListener('click')
-  // sort() {
-  //   this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  // }
 }

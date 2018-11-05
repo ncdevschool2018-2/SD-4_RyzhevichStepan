@@ -6,13 +6,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class StudentsGroupViewModel {
     private long id_group;
     private String name;
-    private long id_faculty;
+    private FacultyViewModel faculty;
+    private int course;
 
-    public StudentsGroupViewModel(long id_group, String name, long id_faculty) {
+    public StudentsGroupViewModel(long id_group, String name, FacultyViewModel faculty, int course) {
         this.id_group = id_group;
         this.name = name;
-        this.id_faculty = id_faculty;
+        this.faculty = faculty;
+        this.course = course;
     }
+
+    public StudentsGroupViewModel(){}
 
     public long getId_group() {
         return id_group;
@@ -30,11 +34,19 @@ public class StudentsGroupViewModel {
         this.name = name;
     }
 
-    public long getId_faculty() {
-        return id_faculty;
+    public FacultyViewModel getFaculty() {
+        return faculty;
     }
 
-    public void setId_faculty(long id_faculty) {
-        this.id_faculty = id_faculty;
+    public void setFaculty(FacultyViewModel faculty) {
+        this.faculty = faculty;
+    }
+
+    public int getCourse() {
+        return course;
+    }
+
+    public void setCourse(int course) {
+        this.course = course;
     }
 }

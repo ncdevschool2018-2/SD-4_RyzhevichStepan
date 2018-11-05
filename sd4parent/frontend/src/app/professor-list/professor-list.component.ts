@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from "@angular/core";
-import { ProfessorList } from "../model/professor-list";
-import  {ProfessorListService } from "../service/professor-list.service";
+import { Professor } from "../model/professor";
+import  {ProfessorService } from "../service/professor.service";
 import { Subscription } from "rxjs/internal/Subscription";
 import { BsModalRef, BsModalService } from "ngx-bootstrap";
 
@@ -14,13 +14,13 @@ export class ProfessorListComponent implements OnInit{
 
   public editMode = false;
 
-  public professorList: ProfessorList[];
-  public editableBa: ProfessorList = new ProfessorList();
+  public professorList: Professor[];
+  public editableBa: Professor = new Professor();
   public modalRef: BsModalRef;
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private professorListService : ProfessorListService,
+  constructor(private professorListService : ProfessorService,
               private modalService: BsModalService){}
 
   ngOnInit() {
@@ -29,16 +29,16 @@ export class ProfessorListComponent implements OnInit{
 
   private loadProfessorList(): void {
     this.subscriptions.push(this.professorListService.getProfessorList().subscribe(listItem => {
-      this.professorList = listItem as ProfessorList[];
+      this.professorList = listItem as Professor[];
       console.log(this.professorList);
     }))
   }
 
   //открытие модального окна для изменения\добавления
-  public _openModal(template: TemplateRef<any>, professorList: ProfessorList) : void {
+  public _openModal(template: TemplateRef<any>, professorList: Professor) : void {
     if(professorList){
       this.editMode = true;
-      this.editableBa = ProfessorList.cloneBase(professorList);
+      this.editableBa = Professor.cloneBase(professorList);
     } else {
       this.refreshBa();
       this.editMode = false;
@@ -65,7 +65,7 @@ export class ProfessorListComponent implements OnInit{
   }
 
   private refreshBa(): void {
-    this.editableBa = new ProfessorList();
+    this.editableBa = new Professor();
   }
 
   public _updateProfessorList(): void {

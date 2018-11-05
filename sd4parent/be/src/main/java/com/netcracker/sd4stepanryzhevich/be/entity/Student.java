@@ -12,20 +12,21 @@ public class Student {
     private String patronymic;
     private String telnumber;
     private String email;
-    private Integer course;
     private Integer subgroup;
-    private long group_id;
-    private StudentsGroup studentsGroup;
+    private StudentsGroup group;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_group")
-    public StudentsGroup getStudentsGroup(){
-       return studentsGroup;
+    public StudentsGroup getGroup(){
+       return group;
     }
 
-    public void setStudentsGroup(StudentsGroup studentsGroup){
-        this.studentsGroup = studentsGroup;
+    public void setGroup(StudentsGroup studentsGroup){
+        this.group = studentsGroup;
     }
+
+    //@OneToOne(fetch = FetchType.EAGER)
+
 
 
     @Id
@@ -91,16 +92,6 @@ public class Student {
     }
 
     @Basic
-    @Column(name = "course")
-    public Integer getCourse() {
-        return course;
-    }
-
-    public void setCourse(Integer course) {
-        this.course = course;
-    }
-
-    @Basic
     @Column(name = "subgroup")
     public Integer getSubgroup() {
         return subgroup;
@@ -125,7 +116,6 @@ public class Student {
         if (patronymic != null ? !patronymic.equals(student.patronymic) : student.patronymic != null) return false;
         if (telnumber != null ? !telnumber.equals(student.telnumber) : student.telnumber != null) return false;
         if (email != null ? !email.equals(student.email) : student.email != null) return false;
-        if (course != null ? !course.equals(student.course) : student.course != null) return false;
         if (subgroup != null ? !subgroup.equals(student.subgroup) : student.subgroup != null) return false;
 
         return true;
@@ -139,8 +129,9 @@ public class Student {
         result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);
         result = 31 * result + (telnumber != null ? telnumber.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (course != null ? course.hashCode() : 0);
         result = 31 * result + (subgroup != null ? subgroup.hashCode() : 0);
         return result;
     }
+
+
 }

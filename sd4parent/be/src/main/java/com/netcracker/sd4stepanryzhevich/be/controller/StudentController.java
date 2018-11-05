@@ -1,7 +1,7 @@
 package com.netcracker.sd4stepanryzhevich.be.controller;
 
 import com.netcracker.sd4stepanryzhevich.be.entity.Student;
-import com.netcracker.sd4stepanryzhevich.be.service.StudentListService;
+import com.netcracker.sd4stepanryzhevich.be.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +11,17 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/student-list")
 public class StudentController {
-    private StudentListService studentListService;
+    private StudentService studentService;
 
     @Autowired
-    public StudentController(StudentListService studentListService) {
-        this.studentListService = studentListService;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Student> getStudentListById(@PathVariable(name = "id") Long id) {
       //  new Student().getStudentsGroup().getName();
-        Optional<Student> studentList = studentListService.getStudentListById(id);
+        Optional<Student> studentList = studentService.getStudentById(id);
         if (studentList.isPresent()) {
             return ResponseEntity.ok(studentList.get());
         } else {
@@ -31,17 +31,17 @@ public class StudentController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Iterable<Student> getAllStudentLists() {
-        return studentListService.getAllStudentLists();
+        return studentService.getAllStudent();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public Student saveStudentList(@RequestBody Student student) {
-        return studentListService.saveStudentList(student);
+        return studentService.saveStudent(student);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deleteStudentList(@PathVariable(name = "id") Long id) {
-        studentListService.deleteStudentList(id);
+        studentService.deleteStudent(id);
         return ResponseEntity.noContent().build();
     }
 }

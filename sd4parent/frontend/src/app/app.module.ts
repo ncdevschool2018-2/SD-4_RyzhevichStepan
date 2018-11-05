@@ -13,13 +13,13 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ProfessorListComponent} from "./professor-list/professor-list.component";
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
     ProfessorListComponent,
-    HeaderComponent
+    HeaderComponent,
+
   ],
   imports: [
     NgbModule,

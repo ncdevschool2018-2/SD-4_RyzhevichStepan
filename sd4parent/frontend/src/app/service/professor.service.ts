@@ -1,21 +1,21 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/index";
-import {ProfessorList} from "../model/professor-list";
+import {Professor} from "../model/professor";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ProfessorListService {
+export class ProfessorService {
   constructor(private http: HttpClient){}
 
-  getProfessorList() : Observable<ProfessorList[]> {
-    return this.http.get<ProfessorList[]>('/api/prlist');
+  getProfessorList() : Observable<Professor[]> {
+    return this.http.get<Professor[]>('/api/prlist');
   }
 
-  saveProfessorList(professorList: ProfessorList) : Observable<ProfessorList> {
-    return this.http.post<ProfessorList>('api/prlist', professorList);
+  saveProfessorList(professorList: Professor) : Observable<Professor> {
+    return this.http.post<Professor>('api/prlist', professorList);
   }
 
   deleteProfessorList(professorList: string) : Observable<void> {

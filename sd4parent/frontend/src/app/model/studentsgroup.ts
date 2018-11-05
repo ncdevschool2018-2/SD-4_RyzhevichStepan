@@ -1,15 +1,18 @@
+import {Faculty} from "./faculty";
 
 export class StudentsGroup{
-  id_group: string;
+  id_group: number;
   name: string;
-  id_faculty: string;
+  faculty: Faculty;
+  course: string;
 
   static cloneBase(studentsGroup: StudentsGroup) : StudentsGroup {
     let clonedStudentsGroup: StudentsGroup = new StudentsGroup();
 
     clonedStudentsGroup.id_group = studentsGroup.id_group;
     clonedStudentsGroup.name = studentsGroup.name;
-    clonedStudentsGroup.id_faculty = studentsGroup.id_faculty;
+    clonedStudentsGroup.faculty = studentsGroup.faculty;
+    clonedStudentsGroup.course = studentsGroup.course;
 
     return clonedStudentsGroup;
   }

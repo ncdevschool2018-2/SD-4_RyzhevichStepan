@@ -11,27 +11,28 @@ public class StudentViewModel {
     private int subgroup;
     private String telnumber;
     private String email;
-    private int course;
-    private long id_group;
-    private String groupName;
+    private StudentsGroupViewModel group;
 
+    public StudentViewModel(long id_student, String firstname, String secondname, String patronymic, int subgroup,
+                            String telnumber, String email, StudentsGroupViewModel group) {
+        this.id_student = id_student;
+        this.firstname = firstname;
+        this.secondname = secondname;
+        this.patronymic = patronymic;
+        this.subgroup = subgroup;
+        this.telnumber = telnumber;
+        this.email = email;
+        this.group = group;
+    }
 
     public StudentViewModel(){}
 
-    public String getGroupName() {
-        return groupName;
+    public StudentsGroupViewModel getGroup() {
+        return group;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public long getId_group() {
-        return id_group;
-    }
-
-    public void setId_group(long id_group) {
-        this.id_group = id_group;
+    public void setGroup(StudentsGroupViewModel group) {
+        this.group = group;
     }
 
     public long getId_student() {
@@ -88,13 +89,5 @@ public class StudentViewModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getCourse() {
-        return course;
-    }
-
-    public void setCourse(int course) {
-        this.course = course;
     }
 }

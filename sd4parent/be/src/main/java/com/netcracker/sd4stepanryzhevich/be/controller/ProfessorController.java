@@ -19,7 +19,7 @@ public class ProfessorController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Professor> getProfessorById(@PathVariable(name = "id") Long id) {
-        new Student().getStudentsGroup().getName();
+        new Student().getGroup().getName();
         Optional<Professor> professorList = professorService.getProfessorById(id);
         if (professorList.isPresent()) {
             return ResponseEntity.ok(professorList.get());

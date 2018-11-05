@@ -1,6 +1,7 @@
 package com.netcracker.sd4stepanryzhevich.be.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -8,7 +9,8 @@ import javax.persistence.*;
 public class StudentsGroup {
     private long id_group;
     private String name;
-    private long id_faculty;
+    private Faculty faculty;
+    private int course;
 
     @Id
     @Column(name = "id_group")
@@ -30,34 +32,42 @@ public class StudentsGroup {
         this.name = name;
     }
 
+
+    @ManyToOne
+    @JoinColumn(name = "id_faculty")
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+
     @Basic
-    @Column(name = "id_faculty")
-    public long getId_faculty() {
-        return id_group;
+    @Column(name = "course")
+    public Integer getCourse() {
+        return course;
     }
 
-    public void setId_faculty(long idFaculty) {
-        this.id_faculty = idFaculty;
+    public void setCourse(Integer course) {
+        this.course = course;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        StudentsGroup studentsGroup = (StudentsGroup) o;
-
-        if (id_group != studentsGroup.id_group) return false;
-        if (name != null ? !name.equals(studentsGroup.name) : studentsGroup.name != null) return false;
-
-        return true;
+        StudentsGroup that = (StudentsGroup) o;
+        return id_group == that.id_group &&
+                faculty == that.faculty &&
+                course == that.course &&
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id_group ^ (id_group >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+
+        return Objects.hash(id_group, name, faculty, course);
     }
 }

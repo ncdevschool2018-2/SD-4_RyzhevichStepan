@@ -1,4 +1,4 @@
-export class ProfessorList {
+export class Professor {
   id_professor: string;
   firstname: string;
   secondname: string;
@@ -6,8 +6,8 @@ export class ProfessorList {
   telnumber: string;
   email: string;
 
-  static cloneBase(professorList: ProfessorList) : ProfessorList {
-    let clonedProfessorList: ProfessorList = new ProfessorList();
+  static cloneBase(professorList: Professor) : Professor {
+    let clonedProfessorList: Professor = new Professor();
 
     clonedProfessorList.id_professor = professorList.id_professor;
     clonedProfessorList.firstname = professorList.firstname;
