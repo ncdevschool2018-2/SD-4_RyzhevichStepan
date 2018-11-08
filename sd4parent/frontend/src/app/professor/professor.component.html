@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col">
       <!--<div class="col col-md-2">-->
-        <button type="button" class="btn btn-dark" (click)="_updateProfessorList()">Обновить</button>
+        <button type="button" class="btn btn-dark" (click)="updateProfessor()">Обновить</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                (click)="_openModal(template)">Создать</button>
+                (click)="openModal(template)">Создать</button>
       <!--</div>-->
       <h4>Список преподавателей</h4>
       <table class="table">
@@ -21,20 +21,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let profList of professorList">
+        <tr *ngFor="let profList of professor">
           <td scope="row">{{profList.id_professor}}</td>
           <td>{{profList.firstname}}</td>
           <td>{{profList.secondname}}</td>
           <td>{{profList.patronymic}}</td>
           <td>{{profList.telnumber}}</td>
           <td>{{profList.email}}</td>
-          <td><button type="button" class="btn btn-secondary" (click)="_openModal(template, profList)">Изменить</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="_deleteProfessorList(profList.id_professor)">Удалить</button></td>
+          <td><button type="button" class="btn btn-secondary" (click)="openModal(template, profList)">Изменить</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteProfessor(profList.id_professor)">Удалить</button></td>
         </tr>
         </tbody>
       </table>
       <div>
-        <p>Количество преподавателей: {{professorList ? professorList.length : 0}}</p>
+        <p>Количество преподавателей: {{professor ? professor.length : 0}}</p>
       </div>
     </div>
   </div>
@@ -45,42 +45,42 @@
   <div class="modal-header">
     <h4 class="modal-title pull-left">{{editMode ? "Изменить": "Создать"}}</h4>
     <button type="button" class="close pull-right"
-            aria-label="Close" (click)="_closeModal()">
+            aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div class="form-studentsGroup">
       <label>Фамилия</label>
-      <input class="form-control" name="secondame" [(ngModel)]="editableBa.secondname" #secondname="ngModel" required/>
+      <input class="form-control" name="secondame" [(ngModel)]="editableProfessor.secondname" #secondname="ngModel" required/>
       <div [hidden]="secondname.valid || secondname.untouched" class="alert alert-danger">
         Введите фамилию<!--Easy way to create client validation-->
       </div>
     </div>
     <div class="form-studentsGroup">
       <label>Имя</label>
-      <input class="form-control" name="firstname" [(ngModel)]="editableBa.firstname" #firstname="ngModel" required/>
+      <input class="form-control" name="firstname" [(ngModel)]="editableProfessor.firstname" #firstname="ngModel" required/>
       <div [hidden]="firstname.valid || firstname.untouched" class="alert alert-danger">
         Введите имя<!--Easy way to create client validation-->
       </div>
     </div>
     <div class="form-studentsGroup">
       <label>Фамилия</label>
-      <input class="form-control" name="patronymic" [(ngModel)]="editableBa.patronymic" #patronymic="ngModel" required/>
+      <input class="form-control" name="patronymic" [(ngModel)]="editableProfessor.patronymic" #patronymic="ngModel" required/>
       <div [hidden]="patronymic.valid || patronymic.untouched" class="alert alert-danger">
         Введите отчество<!--Easy way to create client validation-->
       </div>
     </div>
     <div class="form-studentsGroup">
       <label>Номер телефона</label>
-      <input class="form-control" name="telnumber" [(ngModel)]="editableBa.telnumber" #telnumber="ngModel" required/>
+      <input class="form-control" name="telnumber" [(ngModel)]="editableProfessor.telnumber" #telnumber="ngModel" required/>
       <div [hidden]="telnumber.valid || telnumber.untouched" class="alert alert-danger">
         Введите номер телефона<!--Easy way to create client validation-->
       </div>
     </div>
     <div class="form-studentsGroup">
       <label>Email</label>
-      <input class="form-control" name="email" [(ngModel)]="editableBa.email" #email="ngModel"
+      <input class="form-control" name="email" [(ngModel)]="editableProfessor.email" #email="ngModel"
              required pattern="[a-zA-Z0-9_\.\-]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}"/>
       <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
         Неверный email
@@ -88,10 +88,10 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="_addProfessorList(firstname, secondname, patronymic,telnumber, email)"
+    <button type="button" class="btn btn-default" (click)="addProfessor(firstname, secondname, patronymic,telnumber, email)"
             [disabled]="firstname.invalid || secondname.invalid || patronymic.invalid || telnumber.invalid || email.invalid">{{editMode ? "Сохранить": "Создать"}}
     </button>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="_closeModal()">Закрыть</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Закрыть</button>
   </div>
 
 </ng-template>

@@ -2,14 +2,19 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-import {StudentsGroup} from "../model/studentsgroup";
+import {StudentsGroup} from "../model/studentsGroup";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class StudentsGroupService {
+export class GroupService {
   constructor(private http: HttpClient) {}
+
+
+  getStudentsGroup() : Observable<StudentsGroup[]> {
+    return this.http.get<StudentsGroup[]>('api/gr/');
+  }
 
   getStudentsGroupById(id: number): Observable<StudentsGroup> {
     return this.http.get<StudentsGroup>('/api/gr/' + id);

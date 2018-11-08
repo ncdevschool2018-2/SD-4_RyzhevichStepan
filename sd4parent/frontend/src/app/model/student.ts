@@ -1,4 +1,4 @@
-import {StudentsGroup} from "./studentsgroup";
+import {StudentsGroup} from "./studentsGroup";
 import {groupBy} from "rxjs/internal/operators";
 
 export class Student {
@@ -20,7 +20,7 @@ export class Student {
     clonedStudentList.firstname = studentList.firstname;
     clonedStudentList.secondname = studentList.secondname;
     clonedStudentList.patronymic = studentList.patronymic;
-    // clonedStudentList.group = StudentsGroup.cloneBase(studentList.group);
+    // clonedStudentList.group = StudentsGroup.cloneBase(students.group);
     clonedStudentList.group = studentList.group;
     clonedStudentList.course = studentList.group.course;
     clonedStudentList.subgroup = studentList.subgroup;

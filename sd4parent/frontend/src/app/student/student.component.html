@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-        <button type="button" class="btn btn-dark" (click)="_updateStudentList()">Обновить</button>
+        <button type="button" class="btn btn-dark" (click)="updateStudent()">Обновить</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                (click)="_openModal(template)">Создать</button>
-      <h4>Список студентов группы</h4>
+                (click)="openModal(template)">Создать</button>
+      <h4>Список студентов</h4>
     </div>
       <table class="table">
         <thead>
@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let studList of studentList">
+        <tr *ngFor="let studList of students">
           <td scope="row">{{studList.id_student}}</td>
             <td >{{studList.secondname}}</td>
             <td>{{studList.firstname}}</td>
@@ -35,24 +35,23 @@
             <td>{{studList.subgroup}}</td>
             <td>{{studList.telnumber}}</td>
             <td>{{studList.email}}</td>
-            <td><button type="button" class="btn btn-secondary" (click)="_openModal(template, studList)">Изменить</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="_deleteStudentList(studList.id_student)">Удалить</button></td>
+            <td><button type="button" class="btn btn-secondary" (click)="openModal(template, studList)">Изменить</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteStudent(studList.id_student)">Удалить</button></td>
           </tr>
         </tbody>
       </table>
       <div>
-        <p>Количество студентов: {{studentList ? studentList.length : 0}}</p>
+        <p>Количество студентов: {{students ? students.length : 0}}</p>
       </div>
     </div>
   </div>
-
 
 <!-- Modal -->
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">{{editMode ? "Изменить": "Создать "}}</h4>
     <button type="button" class="close pull-right"
-            aria-label="Close" (click)="_closeModal()">
+            aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -78,29 +77,30 @@
           Введите отчество<!--Easy way to create client validation-->
         </div>
       </div>
+
+    <div class="form-studentsGroup">
+      <label>Факультет</label>
+      <select class="form-control" [(ngModel)]="tempFaculty">
+        <option *ngFor="let faculty of faculties" [value]="faculty.id_faculty">{{faculty.name}}</option>
+      </select>
+    </div>
       <div class="form-studentsGroup">
           <label>Группа</label>
-          <input class="form-control" name="group" [(ngModel)]="editableStudent.group.name" #group="ngModel"
-                 required pattern ="[0-9]{6}"/>
-          <div [hidden]="group.valid || group.untouched" class="alert alert-danger">
-            Ошибка ввода группы<!--Easy way to create client validation-->
-          </div>
+        <select class="form-control" [(ngModel)]="tempGroup">
+          <option *ngFor="let group of groups" [value]="group.id_group">{{group.name}}</option>
+        </select>
+          <!--<input class="form-control" name="group" [(ngModel)]="editableStudent.group.name" #group="ngModel" required pattern ="[0-9]{6}"/>-->
+          <!--<div [hidden]="group.valid || group.untouched" class="alert alert-danger">-->
+            <!--Ошибка ввода группы&lt;!&ndash;Easy way to create client validation&ndash;&gt;-->
+          <!--</div>-->
       </div>
 
-        <div class="form-studentsGroup">
-          <label>Факультет</label>
-          <input class="form-control" name="faculty" [(ngModel)]="editableStudent.group.faculty.name" #faculty="ngModel" required/>
-          <div [hidden]="faculty.valid || faculty.untouched" class="alert alert-danger">
-            Введите группу<!--Easy way to create client validation-->
-          </div>
+        <label>Подруппа</label>
+        <input class="form-control" name="subgroup" [(ngModel)]="editableStudent.subgroup" #subgroup="ngModel" required/>
+        <div [hidden]="subgroup.valid || subgroup.untouched" class="alert alert-danger">
+          Введите подгруппу<!--Easy way to create client validation-->
         </div>
-          <div class="form-studentsGroup">
-            <label>Подруппа</label>
-            <input class="form-control" name="subgroup" [(ngModel)]="editableStudent.subgroup" #subgroup="ngModel" required/>
-            <div [hidden]="subgroup.valid || subgroup.untouched" class="alert alert-danger">
-              Введите подгруппу<!--Easy way to create client validation-->
-            </div>
-          </div>
+      </div>
 
     <div class="form-studentsGroup">
       <label>Номер телефона</label>
@@ -117,12 +117,11 @@
         Неверный email
       </div>
     </div>
-  </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="_addStudentList(firstname, secondname, patronymic, group, faculty, subgroup, telnumber, email)"
-            [disabled]="firstname.invalid || secondname.invalid || patronymic.invalid || faculty.invalid || group.invalid || subgroup.invalid || telnumber.invalid || email.invalid">{{editMode ? "Сохранить": "Создать"}}
+    <button type="button" class="btn btn-default" (click)="addStudent(firstname, secondname, patronymic, subgroup, telnumber, email)"
+            [disabled]="firstname.invalid || secondname.invalid || patronymic.invalid || subgroup.invalid || telnumber.invalid || email.invalid">{{editMode ? "Сохранить": "Создать"}}
     </button>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="_closeModal()">Закрыть</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Закрыть</button>
   </div>
 
 </ng-template>

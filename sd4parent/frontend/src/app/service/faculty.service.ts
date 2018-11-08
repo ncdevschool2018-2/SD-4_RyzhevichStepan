@@ -10,15 +10,19 @@ import {Faculty} from "../model/faculty";
 export class FacultyService {
   constructor(private http: HttpClient) {}
 
+  getFaculty() : Observable<Faculty[]> {
+    return this.http.get<Faculty[]>('api/fc/');
+  }
+
   getFacultyById(id: number): Observable<Faculty> {
     return this.http.get<Faculty>('/api/fc/' + id);
   }
 
-  saveStudentsGroup(faculty: Faculty) : Observable<Faculty> {
+  saveFaculty(faculty: Faculty) : Observable<Faculty> {
     return this.http.post<Faculty>('api/fc/', faculty);
   }
 
-  deleteStudentsGroup(faculty: string) : Observable<void> {
+  deleteFaculty(faculty: string) : Observable<void> {
     return this.http.delete<void>('api/fc/' + faculty);
   }
 }

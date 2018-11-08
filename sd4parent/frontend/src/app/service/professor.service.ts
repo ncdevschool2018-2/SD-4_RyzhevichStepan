@@ -10,7 +10,7 @@ import {Professor} from "../model/professor";
 export class ProfessorService {
   constructor(private http: HttpClient){}
 
-  getProfessorList() : Observable<Professor[]> {
+  getProfessor() : Observable<Professor[]> {
     return this.http.get<Professor[]>('/api/prlist');
   }
 
@@ -18,7 +18,7 @@ export class ProfessorService {
     return this.http.post<Professor>('api/prlist', professorList);
   }
 
-  deleteProfessorList(professorList: string) : Observable<void> {
+  deleteProfessor(professorList: string) : Observable<void> {
     return this.http.delete<void>('api/prlist/' + professorList);
   }
 }
